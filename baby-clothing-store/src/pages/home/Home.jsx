@@ -3,11 +3,13 @@ import NavBar from "../../components/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import ProductCard from "../../components/productCard/ProductCard";
 import ProductPreview from "../../components/productPreview/ProductPreview";
+import Filter from "../../components/filter/Filter";
 import './Home.css';
 
 const Home = () => {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
     useEffect(() => {
         // Datos estáticos de ejemplo
@@ -169,20 +171,40 @@ const Home = () => {
         ];
 
         setProducts(exampleProducts);
+        setFilteredProducts(exampleProducts);
     }, []);
+
+    const handleFilter = ({ size, gender, priceRange }) => {
+        let filtered = products;
+
+        if (size) {
+            filtered = filtered.filter(product => product.size === size);
+        }
+
+        if (gender) {
+            filtered = filtered.filter(product => product.gender === gender);
+        }
+
+        if (priceRange) {
+            const [min, max] = priceRange.split('-').map(Number);
+            filtered = filtered.filter(product => product.price >= min && product.price <= max);
+        }
+
+        setFilteredProducts(filtered);
+    };
 
     return (
         <div>
             <NavBar/>
-            <h1>Home Page</h1>
+            <Filter onFilter={handleFilter}/>
             <div className="product-list">
-                {products.map(product => (
+                {filteredProducts.map(product => (
                     <div key={product.id} onClick={() => setSelectedProduct(product)}>
                         <ProductCard product={product}/>
                     </div>
                 ))}
             </div>
-            {selectedProduct && <ProductPreview product={selectedProduct} />}
+            {selectedProduct && <ProductPreview product={selectedProduct}/>}
             <Footer/>
         </div>
     );
