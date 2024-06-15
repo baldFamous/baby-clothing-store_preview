@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 2rem;
     margin: 2rem 0;
 }
 
@@ -32,9 +33,14 @@
 .close-modal {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #007bff;
+    background-color: #ff6b6b;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.close-modal:hover {
+    background-color: #ff4b4b;
 }

@@ -1,22 +1,23 @@
 .product-card {
     border: 1px solid #ddd;
-    border-radius: 30px;
+    border-radius: 15px;
     overflow: hidden;
     transition: box-shadow 0.3s;
     margin: 1rem;
-    padding-top: 2rem;
+    padding: 1rem;
     text-align: center;
-    max-width: 600px;
+    max-width: 300px;
+    background-color: #fff;
 }
 
 .product-card:hover {
-    box-shadow: 0 6px 8px rgba(0, 0, 0.1, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .product-image {
     width: 100%;
-    max-width: 450px;
     height: auto;
+    border-radius: 10px;
 }
 
 .product-info {
@@ -24,11 +25,11 @@
 }
 
 .product-name {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    color: #333;
 }
 
 .product-price {
-    color: #888;
-    font-size: 1rem;
+    color: #007bff;
+    font-size: 1.2rem;
 }
