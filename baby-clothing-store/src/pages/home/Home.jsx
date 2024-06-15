@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import NavBar from "../../components/navBar/NavBar";
-import Footer from "../../components/footer/Footer";
 import ProductCard from "../../components/productCard/ProductCard";
 import ProductPreview from "../../components/productPreview/ProductPreview";
 import Filter from "../../components/filter/Filter";
 import './Home.css';
 
-const Home = () => {
+const Home = ({cart, setCart}) => {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [filteredProducts, setFilteredProducts] = useState([]);
+
 
     useEffect(() => {
         // Datos estáticos de ejemplo
@@ -195,7 +194,6 @@ const Home = () => {
 
     return (
         <div>
-            <NavBar/>
             <Filter onFilter={handleFilter}/>
             <div className="product-list">
                 {filteredProducts.map(product => (
@@ -204,8 +202,9 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-            {selectedProduct && <ProductPreview product={selectedProduct}/>}
-            <Footer/>
+            {selectedProduct && (
+                <ProductPreview product={selectedProduct} cart={cart} setCart={setCart}/>
+            )}
         </div>
     );
 };

@@ -36,3 +36,27 @@
     font-size: 1rem;
     color: #555;
 }
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.cart-controls button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-controls button:disabled {
+    background-color: #ccc;
+}
+
+.cart-controls span {
+    font-size: 1.2rem;
+}
