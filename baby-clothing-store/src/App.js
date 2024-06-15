@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
 import Home from './pages/home/Home';
 import Admin from './pages/admin/Admin';
 import Login from './pages/admin/Login';
@@ -17,7 +17,8 @@ function App() {
             <div className="App">
                 <NavBar cart={cart} />
                 <Routes>
-                    <Route path="/" element={<Home cart={cart} setCart={setCart} />} />
+                    <Route path="/" element={<Navigate to="/home" />} />
+                    <Route path="/home" element={<Home cart={cart} setCart={setCart} />} />
                     <Route path="/admin" element={<Admin isAuthenticated={isAuthenticated}/>} />
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
                     <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
