@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/baby-clothing-store_preview/baby-clothing-store/static/css/main.482bde4f.css",
+    "main.js": "/baby-clothing-store_preview/baby-clothing-store/static/js/main.95cf5ec7.js",
+    "index.html": "/baby-clothing-store_preview/baby-clothing-store/index.html",
+    "main.482bde4f.css.map": "/baby-clothing-store_preview/baby-clothing-store/static/css/main.482bde4f.css.map",
+    "main.95cf5ec7.js.map": "/baby-clothing-store_preview/baby-clothing-store/static/js/main.95cf5ec7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.482bde4f.css",
+    "static/js/main.95cf5ec7.js"
+  ]
+}
