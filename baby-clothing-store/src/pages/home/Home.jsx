@@ -2,13 +2,16 @@ import React, {useEffect, useState} from 'react';
 import ProductCard from "../../components/productCard/ProductCard";
 import ProductPreview from "../../components/productPreview/ProductPreview";
 import Filter from "../../components/filter/Filter";
+import Modal from 'react-modal';
 import './Home.css';
+
+Modal.setAppElement('#root');
 
 const Home = ({cart, setCart}) => {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [filteredProducts, setFilteredProducts] = useState([]);
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         // Datos estáticos de ejemplo
@@ -192,19 +195,38 @@ const Home = ({cart, setCart}) => {
         setFilteredProducts(filtered);
     };
 
+    const openModal = (product) => {
+        setSelectedProduct(product);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setSelectedProduct(null);
+        setIsModalOpen(false);
+    };
+
     return (
         <div>
             <Filter onFilter={handleFilter}/>
             <div className="product-list">
                 {filteredProducts.map(product => (
-                    <div key={product.id} onClick={() => setSelectedProduct(product)}>
+                    <div key={product.id} onClick={() => openModal(product)}>
                         <ProductCard product={product}/>
                     </div>
                 ))}
             </div>
-            {selectedProduct && (
-                <ProductPreview product={selectedProduct} cart={cart} setCart={setCart}/>
-            )}
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={closeModal}
+                contentLabel="Product Details"
+                className="product-modal"
+                overlayClassName="product-modal-overlay"
+            >
+                {selectedProduct && (
+                    <ProductPreview product={selectedProduct} cart={cart} setCart={setCart} />
+                )}
+                <button onClick={closeModal} className="close-modal">Close</button>
+            </Modal>
         </div>
     );
 };
