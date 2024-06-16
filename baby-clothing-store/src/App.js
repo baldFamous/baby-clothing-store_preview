@@ -17,7 +17,7 @@ function App() {
             <div className="App">
                 <NavBar cart={cart} />
                 <Routes>
-                    <Route path="/" element={<Navigate to="/home" />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/home" element={<Home cart={cart} setCart={setCart} />} />
                     <Route path="/admin" element={<Admin isAuthenticated={isAuthenticated}/>} />
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
