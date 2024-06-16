@@ -13,12 +13,11 @@ function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
             <div className="App">
                 <NavBar cart={cart} />
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/home" element={<Home cart={cart} setCart={setCart} />} />
+                    <Route path="/" element={<Home cart={cart} setCart={setCart} />} />
                     <Route path="/admin" element={<Admin isAuthenticated={isAuthenticated}/>} />
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
                     <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
