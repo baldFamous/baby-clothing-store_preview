@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../../api/api';
 import './Login.css';
 
 const Login = ({ setIsAuthenticated }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        // Usuario y contraseña predefinidos
-        const predefinedUser = 'admin';
-        const predefinedPass = 'admin';
-
-        if (username === predefinedUser && password === predefinedPass) {
+        try {
+            const credentials = { username, password };
+            await login(credentials);
             setIsAuthenticated(true);
             navigate('/admin');
-        } else {
-            alert('Incorrect username or password');
+        } catch (error) {
+            setError('Incorrect username or password');
         }
     };
 
@@ -39,6 +39,7 @@ const Login = ({ setIsAuthenticated }) => {
                 />
                 <button type="submit">Login</button>
             </form>
+            {error && <p className="error">{error}</p>}
         </div>
     );
 };
