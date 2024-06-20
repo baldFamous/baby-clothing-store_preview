@@ -112,8 +112,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    #"https://baldfamous.github.io/baby-clothing-store_preview/",  # Asegúrate de usar tu URL de GitHub Pages
-]
+    'http://localhost:3000',]
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
