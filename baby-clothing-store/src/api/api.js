@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://baby-clothing-storepreview-production.up.railway.app/';
+const API_URL = 'https://baby-clothing-storepreview-production.up.railway.app';
 
 // Función para obtener productos
 export const fetchProducts = async (filters) => {
