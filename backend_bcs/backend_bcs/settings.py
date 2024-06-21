@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from decouple import config
 from datetime import timedelta
+import dj_database_url
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +11,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['baby-clothing-storepreview-production.up.railway.app']
+ALLOWED_HOSTS = ['baby-clothing-storepreview-production.up.railway.app', 'http://127.0.0.1:8000']
 
 CSRF_TRUSTED_ORIGINS = ['https://baby-clothing-storepreview-production.up.railway.app']
 
@@ -82,10 +83,7 @@ WSGI_APPLICATION = 'backend_bcs.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
 
@@ -119,7 +117,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     'https://baby-store-ochre.vercel.app',
-    'baby-store-poqmmr87k-bastians-projects-7b2ec371.vercel.app',
+    'https://baby-store-poqmmr87k-bastians-projects-7b2ec371.vercel.app',
     'http://localhost:3000',
 ]
 
