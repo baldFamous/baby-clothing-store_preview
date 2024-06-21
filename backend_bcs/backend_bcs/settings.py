@@ -10,6 +10,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 
 ALLOWED_HOSTS = ['baby-clothing-storepreview-production.up.railway.app',
+                 'localhost'
                  ]
 
 
@@ -114,7 +115,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    'baby-store-poqmmr87k-bastians-projects-7b2ec371.vercel.app',
+    'https://baby-store-ochre.vercel.app',
+    'http://localhost:3000',
 ]
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
