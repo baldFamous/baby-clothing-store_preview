@@ -9,7 +9,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['https://baby-clothing-storepreview-production.up.railway.internal']
+ALLOWED_HOSTS = ['baby-clothing-storepreview-production.up.railway.app',
+                 ]
 
 
 # Application definition
