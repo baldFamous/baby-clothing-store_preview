@@ -9,9 +9,9 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['baby-clothing-storepreview-production.up.railway.app',
-                 'localhost'
-                 ]
+ALLOWED_HOSTS = ['baby-clothing-storepreview-production.up.railway.app']
+
+CSRF_TRUSTED_ORIGINS = ['https://baby-clothing-storepreview-production.up.railway.app']
 
 
 # Application definition
