@@ -9,7 +9,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['https://baby-clothing-storepreview-production.up.railway.app']
+ALLOWED_HOSTS = ['https://baby-clothing-storepreview-production.up.railway.internal']
 
 
 # Application definition
@@ -113,7 +113,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    'https://baby-store-ochre.vercel.app',]
+    'baby-store-poqmmr87k-bastians-projects-7b2ec371.vercel.app',
+]
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
