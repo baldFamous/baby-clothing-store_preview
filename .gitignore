@@ -1,6 +1,6 @@
 .idea/
 .venv/
-.env
+backend_bcs/.env
 
 __pycache__/
 db.sqlite3
